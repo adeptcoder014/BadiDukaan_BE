@@ -105,7 +105,7 @@ module.exports = {
       const { email, password } = req.body;
 
       // Check if user exists
-      const admin = await Admin.findOne({ email });
+      const admin = await Admin.findOne({ where: { email } });
       if (!admin) {
         return res.status(400).json({
           status: 400,
@@ -126,6 +126,7 @@ module.exports = {
       const token = jwt.sign({ userId: admin._id, role: admin.role }, process.env.JWT_SECRET, { expiresIn: "360m" });
 
       res.status(200).json({
+        status: 200,
         message: "Login successful",
         token,
         // 
