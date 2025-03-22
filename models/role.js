@@ -1,6 +1,6 @@
 const { DataTypes } = require("sequelize");
 const { sequelize } = require("../db/connect");
-const User = require("./User");
+// const User = require("./User");
 
 const Role = sequelize.define("Role", {
   id: {
@@ -20,15 +20,15 @@ const Role = sequelize.define("Role", {
   createdBy: {
     type: DataTypes.INTEGER,
     allowNull: true,
-    references: {
-      model: User,
-      key: "id",
-    },
+    // references: {
+    //   model: User,
+    //   key: "id",
+    // },
   },
 });
 
 // Associations
-Role.belongsTo(User, { foreignKey: "createdBy" });
-User.hasMany(Role, { foreignKey: "createdBy" });
+// Role.belongsTo(User, { foreignKey: "createdBy" });
+// User.hasMany(Role, { foreignKey: "createdBy" });
 
 module.exports = Role;
