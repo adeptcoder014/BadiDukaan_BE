@@ -1,0 +1,64 @@
+🔹 Super Admin Backend API Routes
+1️⃣ Authentication & User Management
+POST super-admin/auth/register-super-admin → Register Super Admin ✅
+POST super-admin/auth/login → Login ✅
+POST super-admin/auth/forgot-password → Forgot Password ⚠️
+POST super-admin/auth/verify-email → Verify Email ⚠️
+PATCH super-admin/auth/change-password → Change Password ⚠️
+
+2️⃣ Role-Based Access Control (RBAC)
+GET /super-admin/roles → List All Roles ✅
+PATCH /super-admin/user/{user_id}/role → Assign Role to User
+
+3️⃣ Business & User Onboarding
+POST /super-admin/business → Create a Business ✅
+POST /super-admin/business-admin → Create a Business-Admin ✅
+GET /super-admin/business-admin → Get All Business-Admin ✅
+GET /super-admin/business-admin/:businessAdminId → Get  Business-Admin BY Id ✅
+GET /super-admin/businesses → List All Businesses ✅
+
+
+PATCH /super-admin/business/{business_id} → Update Business
+DELETE /super-admin/business/{business_id} → Delete Business
+POST /super-admin/business/{business_id}/user → Add User to Business
+GET /super-admin/business/{business_id}/users → List Users of a Business
+PATCH /super-admin/user/{user_id}/activate → Approve User After Email Verification
+
+4️⃣ Business Module & Sub-Module Management
+POST /super-admin/business/{business_id}/modules → Assign Modules to a Business
+GET /super-admin/business/{business_id}/modules → View Business Modules
+PATCH /super-admin/business/{business_id}/module/{module_id} → Update Business Module
+DELETE /super-admin/business/{business_id}/module/{module_id} → Remove Module from Business
+
+5️⃣ User Module Request & Approval Flow
+POST /user/module-request → User Requests Module for Business
+GET /user/modules → List Approved Modules for User
+POST /user/module/{module_id}/submodule-request → Request Sub-Module
+GET /user/module/{module_id}/submodules → View Accessible Sub-Modules
+PATCH /super-admin/module-request/{request_id}/approve → Approve Module Request
+PATCH /super-admin/module-request/{request_id}/reject → Reject Module Request
+
+6️⃣ Business as a Module (Nested Businesses)
+POST /super-admin/business/{business_id}/modules/{module_id}/sub-business → Assign a Business as a Module
+GET /super-admin/business/{business_id}/sub-businesses → View Sub-Businesses Assigned
+
+7️⃣ Subscription & Billing
+POST /subscription/create → Create a Subscription Plan
+GET /subscription/plans → List Subscription Plans
+POST /user/subscribe/{plan_id} → Subscribe to a Plan
+GET /user/subscription-status → Get User Subscription Status
+POST /payment/webhook → Handle Payment Webhooks
+
+8️⃣ Notifications & Alerts
+POST /notification/email → Send Email Notification
+POST /notification/whatsapp → Send WhatsApp Notification
+GET /notifications/user → Get User Notifications
+GET /notifications/admin → Get Super Admin Notifications
+
+9️⃣ Audit Logs & Activity Tracking
+GET /audit-logs → Get All Activity Logs
+GET /audit-logs/{user_id} → Get Logs for a Specific User
+GET /audit-logs/business/{business_id} → Get Logs for a Business
+
+
+

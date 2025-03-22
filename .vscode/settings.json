@@ -1,0 +1,8 @@
+{
+    "appService.zipIgnorePattern": [
+        "node_modules{,/**}",
+        ".vscode{,/**}"
+    ],
+    "appService.defaultWebAppToDeploy": "/subscriptions/f48f01ea-e9bd-4287-a129-b631352ccbd4/resourceGroups/baduDukaan_group/providers/Microsoft.Web/sites/baduDukaan",
+    "appService.deploySubpath": "."
+}
