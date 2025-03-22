@@ -105,7 +105,7 @@ module.exports = {
       const { email, password } = req.body;
 
       // Check if user exists
-      const admin = await adminModel.findOne({ email });
+      const admin = await Admin.findOne({ email });
       if (!admin) {
         return res.status(400).json({
           status: 400,
