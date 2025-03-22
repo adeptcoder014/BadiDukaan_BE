@@ -17,7 +17,7 @@ const connectDB = async () => {
     await sequelize.authenticate();
     // Sync models - { force: true } drops tables; { alter: true } updates structure
     console.log(chalk.green.bold("✅ MySQL Database connected successfully!"));
-    await sequelize.sync({alter: true});
+    await sequelize.sync();
     console.log(chalk.blue.bold("🔄 Database models synced!"));
     console.log(`
       🌐 ${chalk.cyan("Host:")} ${chalk.yellow(process.env.MYSQL_HOST)}
